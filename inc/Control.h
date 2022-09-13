@@ -37,6 +37,8 @@ public:
     void parameterInit(void);
     int getASpeed(void);
     void getQueueData(void);
+    void setAVCSpeed(int16_t);
+    void setAPCPos(int16_t pos);
     RS232 FH;
     Ftdi::Context FTDI;
 
@@ -47,8 +49,13 @@ private:
     unsigned char controlw[8];
     unsigned char setMode[10];
     unsigned char data[13];
-    unsigned char PosRequest[13];
+    unsigned char PosRequest[9];
+    unsigned char SpeedRequest[9];
     unsigned char readbuffer[5];
+    unsigned char analogbuffer1[11];
+    unsigned char propotionbuffer[13];
+    unsigned char targetsourcebuffer[10];
+    unsigned char DACbuffer[10];
     bool PDflag;
     bool ListenFlag;
     int ActualPos;

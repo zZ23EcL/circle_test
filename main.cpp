@@ -29,13 +29,13 @@ int main()
 //    FH.DealQueue();
 
     Control C;
-    unsigned char d[13];
     C.OpenSerial();
     C.parameterInit();
     C.MotorInit();
-    C.setPos(0);
-//    printf("start.....\n");
-//    C.MotorEnable();
+//    C.setPos(0);
+    printf("start.....\n");
+
+    C.MotorEnable();
 //    sleep(1);
 //    C.FH.getData(d,1000,1);
 //    printf("write Speed........\n");
@@ -45,14 +45,17 @@ int main()
 //    C.FTDI.write(d,13);
 //    C.MotorDisable();
     C.OpenL();
-    C.StartC();
+    C.setAPCPos(0);
+//    C.StartC();
 //    for (int i=0;i<20;i++){
 //        C.setPos(i*10000);
 //        sleep(1);
 //    }
+    sleep(2);
+    C.setAPCPos(2500);
     getchar();
 
-//    C.MotorDisable();
+    C.MotorDisable();
 //    unsigned char controlw[8];
 
 
